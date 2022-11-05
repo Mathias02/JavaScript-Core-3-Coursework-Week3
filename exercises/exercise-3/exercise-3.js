@@ -6,3 +6,29 @@ let order = [
   { itemName: "Hot Coffee", quantity: 2, unitPrice: 1.0 },
   { itemName: "Hash Brown", quantity: 4, unitPrice: 0.4 },
 ];
+
+const orders =(items) =>{
+ const order = items.map(item =>{
+    const {quantity, itemName, unitPrice} = item;
+    const total = quantity * unitPrice;
+    return `<tr>
+    <td>${quantity}</td>
+    <td>${itemName}</td>
+    <td>${total}</td>
+  </tr>`
+  })
+ return `
+ <table>
+    <thead>
+      <tr>
+        <th>QTY</th>
+        <th>ITEM</th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+     ${order}
+    </tbody>
+  </table>
+ `
+}
